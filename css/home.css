@@ -115,3 +115,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.title {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.logo_tag {
+    width: 48px;
+}

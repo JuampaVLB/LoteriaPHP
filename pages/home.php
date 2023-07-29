@@ -30,7 +30,7 @@ if (isset($_SESSION['username'])) {
     <nav id="nav">
 
       <div class="logo">
-        <img id="logo" src="../assets/img/logo.png" alt="Logo" />
+        <h1 class="title">Sistema LOTOFACIL</h1>
       </div>
 
       <ul id="nav-list">
@@ -39,7 +39,17 @@ if (isset($_SESSION['username'])) {
         <li> <a href="#">Apuestas</a> </li>
         <li> <a href="#">Video Llamadas</a> </li>
         <li> <a href="#">Tendencias</a> </li>
+        <?php
+
+        if ($username == "probando") {
+          echo '
+            <li> <a href="./nav-vistas/accounts.php">gestão de contas</a> </li>
+            ';
+        }
+
+        ?>
         <li> <a href="../php/logout.php">Cerrar Sesion</a> </li>
+        <li> <img src="../assets/img/tag.png" alt="" class="logo_tag"> </li>
       </ul>
     </nav>
     <div id="home">
