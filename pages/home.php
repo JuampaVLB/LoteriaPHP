@@ -65,10 +65,137 @@ if (isset($_SESSION['username'])) {
         </p>
       </header>
       <section id="home-contenido">
-        Home
+        <div class="info">
+        <p><span>Lotofacil</span> - 10 fixas</p>
+        <p>Escolha 10 numeros abaixo: </p>
+        </div>
+        <div class="numbers">
+          <button data_number="1">
+            1
+          </button>
+          <button data_number="2">
+            2
+          </button>
+          <button data_number="3">
+            3
+          </button>
+          <button data_number="4">
+            4
+          </button>
+          <button data_number="5">
+            5
+          </button>
+          <button data_number="6">
+            6
+          </button>
+          <button data_number="7">
+            7
+          </button>
+          <button data_number="8">
+            8
+          </button>
+          <button data_number="9">
+            9
+          </button>
+          <button data_number="10">
+            10
+          </button>
+          <button data_number="11">
+            11
+          </button>
+          <button data_number="12">
+            12
+          </button>
+          <button data_number="13">
+            13
+          </button>
+          <button data_number="14">
+            14
+          </button>
+          <button data_number="15">
+            15
+          </button>
+          <button data_number="16">
+            16
+          </button>
+          <button data_number="17">
+            17
+          </button>
+          <button data_number="18">
+            18
+          </button>
+          <button data_number="19">
+            19
+          </button>
+          <button data_number="20">
+            20
+          </button>
+          <button data_number="21">
+            21
+          </button>
+          <button data_number="22">
+            22
+          </button>
+          <button data_number="23">
+            23
+          </button>
+          <button data_number="24">
+            24
+          </button>
+          <button data_number="25">
+            25
+          </button>
+        </div>
+      <div class="line"></div>
+        <div class="buttons">
+          <button id="submit">Gerar Apostas</button>
+          <button id="clear">Limpar Campos</button>  
+        </div>
       </section>
     </div>
   </div>
+
+  <script>
+  let numbers = [];
+  const buttons = document.querySelectorAll('.numbers button');
+  const submit = document.querySelector('#submit');
+  const clear = document.querySelector('#clear');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
+     if(e.target.style.background == "red") {
+      e.target.style.background = "purple";
+      let index = numbers.indexOf(e.target.attributes.data_number.value);
+
+      if (index !== -1) {
+      numbers.splice(index, 1);
+      }
+     } else {
+      numbers.push(e.target.attributes.data_number.value);
+      e.target.style.background = "red";
+     }
+    });
+  });
+
+  submit.addEventListener("click", () => {
+    if(numbers.length < 10) {
+      alert("debes elegir minimo 10 numeros");
+    } else {
+      alert(numbers);
+    }
+    
+  })
+
+  clear.addEventListener("click", () => {
+    numbers = [];
+
+    buttons.forEach(button => {
+    button.style.background = "purple";
+  });
+
+  })
+
+</script>
 
 </body>
 
