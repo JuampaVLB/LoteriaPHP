@@ -178,13 +178,27 @@ if (isset($_SESSION['username'])) {
   });
 
   submit.addEventListener("click", () => {
-    if(numbers.length < 10) {
-      alert("debes elegir minimo 10 numeros");
-    } else {
-      alert(numbers);
-    }
-    
-  })
+  if (numbers.length < 10) {
+    alert("Debes elegir al menos 10 números");
+  } else {
+    fetch("../php/game_1.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ numbers }),
+    })
+      .then((response) => response.json()) // Parsear la respuesta JSON
+      .then((data) => {
+        alert(data);
+        const encodedData = encodeURIComponent(JSON.stringify(data));
+        window.location.href = `result.php?array=${encodedData}`;
+      })
+      .catch((error) => {
+        console.error("Error al enviar los datos:", error);
+      });
+  }
+});
 
   clear.addEventListener("click", () => {
     numbers = [];
